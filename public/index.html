@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a>還迎來到我的設定介面</a>
+    <a href="sign.html">登入/註冊</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            setTimeout(() => {
+                // 這裡假設你有一個函數叫做 isLoggedIn 來檢查用戶是否已經登入
+                if (!isLoggedIn()) {
+                    window.location.href = 'sign.html';
+                }
+            }, 5001);
+        });
+        </script>
+</body>
+</html>

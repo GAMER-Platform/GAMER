@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/zhonghonghao/Imitate-Steam-arch-management-platform",
+      "program": "/Users/zhonghonghao/Imitate-Steam-arch-management-platform/build/Debug/outDebug"
+    }
+  ]
+}
