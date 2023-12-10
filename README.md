@@ -6,3 +6,4 @@
 > 2. Database - SQLite
 > 3. Ajax
 > 4. JQuery
+> 5. Bootstrap
