@@ -12,6 +12,17 @@ app.get('/', (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'sign.html'));
 });
 
+/*-------------------seeting sign in/up User-------------------*/
+
+const session = require('express-session');
+
+app.use(session({
+  secret: 'your secret key',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } 
+}));
+
 /*-------------------建立資料庫連線-------------------*/
 
 
@@ -52,12 +63,28 @@ app.post('/signin', (req, res) => {
     }
     if (row) {
       if (row.password === req.body.password) {
+        req.session.email = req.body.email; // 儲存用戶的 email 到 session
         return res.json({ redirect: 'index.html' });
       } else {
         return res.status(400).json({ error: '密碼錯誤，請重新輸入。' });
       }
     } else {
       return res.status(400).json({ error: '該用戶未註冊，請先註冊。' });
+    }
+  });
+});
+
+app.get('/api/user', (req, res) => {
+  // 假設你已經在某個地方儲存了當前登入的用戶的 email
+  const userEmail = req.session.email;
+  db.get(`SELECT name FROM users WHERE email = ?`, [userEmail], (err, row) => {
+    if (err) {
+      return res.status(400).json({ error: err.message });
+    }
+    if (row) {
+      return res.json({ name: row.name });
+    } else {
+      return res.status(400).json({ error: '無法找到用戶。' });
     }
   });
 });

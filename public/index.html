@@ -4,20 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="css/index.css" rel="stylesheet">
 </head>
 <body>
-    <a>還迎來到我的設定介面</a>
-    <a href="sign.html">登入/註冊</a>
-
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Logo</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Community</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Story</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                <a href="sign.html">sign in/up</a>
+            </span>
+        </div>
+    </nav>
+                <!-------------取得User name------------->
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
-            setTimeout(() => {
-                // 這裡假設你有一個函數叫做 isLoggedIn 來檢查用戶是否已經登入
-                if (!isLoggedIn()) {
-                    window.location.href = 'sign.html';
+            fetch('/api/user')
+                .then(response => response.json())
+                .then(data => {
+                const userName = data.name;
+                const navbarText = document.querySelector('.navbar-text');
+                if (userName) {
+                    // 如果用戶已登入，則顯示 "Hi! {用戶名稱}"，並且是一個連結到用戶資料頁面的連結
+                    navbarText.innerHTML = `<a href="user.html">Hi! ${userName}</a>`;
+                } else {
+                    // 如果用戶未登入，則顯示一個連結到 sign.html 的連結
+                    navbarText.innerHTML = '<a href="sign.html">sign in</a>';
                 }
-            }, 5001);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         });
-        </script>
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
