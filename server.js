@@ -92,5 +92,5 @@ app.get('/api/user', (req, res) => {
 /*-------------------監聽-------------------*/
 
 app.listen(5501, () => {
-  console.log('Server is running on port 5501');
+  console.log('Server is running on port 5501 http://127.0.0.1:5501');
 });
