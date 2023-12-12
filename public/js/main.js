@@ -1,3 +1,7 @@
+/*
+2023 CHUNG-HAO. All Rights Reserved. 版權所有
+ */
+
 $(document).ready(function(){
 
     $('.fa-bars').click(function(){

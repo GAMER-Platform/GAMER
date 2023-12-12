@@ -132,8 +132,8 @@ body{
 }
 
 .header .navbar ul li a:hover{
-    color: #00bfff;
-    text-decoration: underline;
+    color: #0a0b0b;
+    text-decoration: none;
 }
 
 .header .logo i{
@@ -162,14 +162,27 @@ body{
     overflow: hidden !important;
 }
 
+.home::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5); 
+    z-index: 1;
+}
+
 .home h1{
-    color: #fff;
+    color: #111111;
     font-size: 5.5rem;
+    z-index: 2;
 }
 
 .home h2{
-    color: #fff;
+    color: #242323;
     font-size: 3rem;
+    z-index: 2;
 }
 
 .home .wave{
@@ -328,7 +341,7 @@ body{
   }   
 
 .counters {
-	background-image: url(../images/img2.jpg);
+	background-image: url(../images/fotor-ai-20231212204850.jpg);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -459,7 +472,7 @@ body{
 .communicate{
     text-align: center;
     align-items: center;
-    background-image: url(../images/img3.jpg);
+    background-image: url(../images/myedit_ai_image_1212205214.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
