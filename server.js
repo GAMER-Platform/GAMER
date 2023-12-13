@@ -39,7 +39,7 @@ db.run('CREATE TABLE users(name text, email text UNIQUE, password text, professi
   }
 });
 
-/*-------------------建立資料庫連線：新增遊戲-------------------*/
+/*-------------------建立資料庫連線：連盟者-------------------*/
 
 db.run('CREATE TABLE Games(id INTEGER PRIMARY KEY, name TEXT, image TEXT, description TEXT, link TEXT)', (err) => {
   if (err) {
@@ -59,7 +59,7 @@ app.post('/signup', (req, res) => {
   });
 });
 
-/*-------------------將遊戲中的資訊存在表格當中------------------*/
+/*-------------------將遊戲中的資訊存在 game 表格當中------------------*/
 
 app.post('/addGame', (req, res) => {
   const name = req.body.name;
