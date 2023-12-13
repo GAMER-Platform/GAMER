@@ -305,7 +305,7 @@
             const navbarText = document.querySelector('.navbar-text');
             if (userName) {
                 // 如果用戶已登入，則顯示 "Hi! {用戶名稱}"，並且是一個連結到用戶資料頁面的連結
-                navbarText.innerHTML = `<a href="user.html">Hi! ${userName}</a>`;
+                navbarText.innerHTML = `<a href="#">Hi! ${userName}</a> <a href="sign.html">登出</a>`;
             } else {
                 // 如果用戶未登入，則顯示一個連結到 sign.html 的連結
                 navbarText.innerHTML = '<a href="sign.html">sign in</a>';

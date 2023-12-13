@@ -33,7 +33,7 @@ let db = new sqlite3.Database(':memory:', (err) => {
   console.log('Connected to the in-memory SQlite database.');
 });
 
-db.run('CREATE TABLE users(name text, email text UNIQUE, password text)', (err) => {
+db.run('CREATE TABLE users(name text, email text UNIQUE, password text, profession text)', (err) => {
   if (err) {
     return console.log(err.message);
   }
@@ -42,7 +42,7 @@ db.run('CREATE TABLE users(name text, email text UNIQUE, password text)', (err) 
 /*-------------------將用戶的名字、電郵和密碼插入到 users 表格中-------------------*/
 
 app.post('/signup', (req, res) => {
-  db.run(`INSERT INTO users(name, email, password) VALUES(?, ?, ?)`, [req.body.name, req.body.email, req.body.password], function(err) {
+  db.run(`INSERT INTO users(name, email, password, profession) VALUES(?, ?, ?, ?)`, [req.body.name, req.body.email, req.body.password, req.body.profession], function(err) {
     if (err) {
       return res.status(400).json({ error: err.message });
     }
@@ -64,7 +64,25 @@ app.post('/signin', (req, res) => {
     if (row) {
       if (row.password === req.body.password) {
         req.session.email = req.body.email; // 儲存用戶的 email 到 session
-        return res.json({ redirect: 'index.html' });
+
+        let redirectPage;
+        switch (row.profession) {
+          case '使用者':
+            redirectPage = 'index.html';
+            break;
+          case '聯盟者':
+            redirectPage = 'alliance.html';
+            break;
+          case '管理者':
+            redirectPage = 'manager.html';
+            break;
+          case '廣告商':
+            redirectPage = 'advertisers.html';
+            break;
+          default:
+            redirectPage = 'index.html';
+        }
+        return res.json({ redirect: redirectPage });
       } else {
         return res.status(400).json({ error: '密碼錯誤，請重新輸入。' });
       }
