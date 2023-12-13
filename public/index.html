@@ -64,19 +64,10 @@
     <div class="container">
       <div class="row">
         <div class="section-head col-sm-12" id="service">
-          <h1>Store</h1>
+          <h1>Store - 觀眾</h1>
           <p>可以將自己製作的遊戲上架上來供給給大家做遊玩，也可以在這裡找到自己喜歡的遊戲，並且舉辦電競賽事連線遊玩。
             </p>
         <p>You can upload your own games for everyone to play, and you can also find your favorite games here and play online.</p>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="item"> 
-            <a href="newPage.html"> 
-              <span class="icon feature_box_col_one"><i class="fa fa-plus"></i></span> 
-              <h6>Add New</h6> 
-              <p>Click here to add new.</p> 
-            </a>
-          </div>
         </div>
         <div class="col-lg-4 col-sm-6">
           <div class="item"> <span class="icon feature_box_col_two"><i class="fa fa-magic"></i></span>
@@ -126,7 +117,7 @@
         <div class="container">
         <div class="row">
             <div class="section-head-1 col-sm-12" style="text-align: center;">
-            <h4 style="margin-top: -5rem;" id="portfolio"><span>Our</span> Contest</h4>
+            <h4 style="margin-top: -5rem;" id="portfolio"><span>Our</span> Contest - 觀眾</h4>
             <p>相關賽事舉辦以及報名參加</p>
             <p>Related competitions are held and registration to participate is available</p>
             </div>
@@ -304,10 +295,8 @@
             const userName = data.name;
             const navbarText = document.querySelector('.navbar-text');
             if (userName) {
-                // 如果用戶已登入，則顯示 "Hi! {用戶名稱}"，並且是一個連結到用戶資料頁面的連結
                 navbarText.innerHTML = `<a href="#">Hi! ${userName}</a> <a href="sign.html">登出</a>`;
             } else {
-                // 如果用戶未登入，則顯示一個連結到 sign.html 的連結
                 navbarText.innerHTML = '<a href="sign.html">sign in</a>';
             }
         })

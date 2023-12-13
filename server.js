@@ -23,20 +23,29 @@ app.use(session({
   cookie: { secure: false } 
 }));
 
-/*-------------------建立資料庫連線-------------------*/
+/*-------------------建立資料庫連線：使用者-------------------*/
 
 
 let db = new sqlite3.Database(':memory:', (err) => {
   if (err) {
     return console.error(err.message);
   }
-  console.log('Connected to the in-memory SQlite database.');
+  console.log('Connected to the in-memory SQlite database - User...');
 });
 
 db.run('CREATE TABLE users(name text, email text UNIQUE, password text, profession text)', (err) => {
   if (err) {
     return console.log(err.message);
   }
+});
+
+/*-------------------建立資料庫連線：新增遊戲-------------------*/
+
+db.run('CREATE TABLE Games(id INTEGER PRIMARY KEY, name TEXT, image TEXT, description TEXT, link TEXT)', (err) => {
+  if (err) {
+    return console.log(err.message);
+  }
+  console.log('Connected to the in-memory SQlite database - Game...');
 });
 
 /*-------------------將用戶的名字、電郵和密碼插入到 users 表格中-------------------*/
@@ -47,6 +56,22 @@ app.post('/signup', (req, res) => {
       return res.status(400).json({ error: err.message });
     }
     return res.redirect('/signin');
+  });
+});
+
+/*-------------------將遊戲中的資訊存在表格當中------------------*/
+
+app.post('/addGame', (req, res) => {
+  const name = req.body.name;
+  const image = req.body.image;  
+  const description = req.body.description;
+  const link = req.body.link;
+
+  db.run(`INSERT INTO Games(name, image, description, link) VALUES(?, ?, ?, ?)`, [name, image, description, link], function(err) {
+    if (err) {
+      return res.status(400).json({ error: err.message });
+    }
+    return res.json({ message: 'Game added successfully.' });
   });
 });
 
@@ -68,7 +93,7 @@ app.post('/signin', (req, res) => {
         let redirectPage;
         switch (row.profession) {
           case '使用者':
-            redirectPage = 'index.html';
+            redirectPage = 'User.html';
             break;
           case '聯盟者':
             redirectPage = 'alliance.html';
@@ -107,6 +132,16 @@ app.get('/api/user', (req, res) => {
   });
 });
 
+/*---------------------限制看到的頁面---------------------*/
+
+app.get('/checkRole', (req, res) => {
+  const role = req.session.role;
+  if (role === '聯盟者') {
+    res.json({ canAddGame: true });
+  } else {
+    res.json({ canAddGame: false });
+  }
+});
 /*-------------------監聽-------------------*/
 
 app.listen(5501, () => {
