@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamer</title>
+    <title>Gamer - 聯盟者</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -92,10 +92,6 @@
                     <input type="text" class="form-control" id="game-name">
                     </div>
                     <div class="form-group">
-                    <label for="game-image">遊戲圖片</label>
-                    <input type="file" class="form-control-file" id="game-image">
-                    </div>
-                    <div class="form-group">
                     <label for="game-description">遊戲介紹</label>
                     <textarea class="form-control" id="game-description" rows="3"></textarea>
                     </div>
@@ -176,10 +172,6 @@
                           <div class="form-group">
                           <label for="game-name">遊戲名稱</label>
                           <input type="text" class="form-control" id="game-name">
-                          </div>
-                          <div class="form-group">
-                          <label for="game-image">遊戲圖片</label>
-                          <input type="file" class="form-control-file" id="game-image">
                           </div>
                           <div class="form-group">
                           <label for="game-description">遊戲介紹</label>
@@ -366,13 +358,11 @@
         event.preventDefault();
       
         const name = document.querySelector('#game-name').value;
-        const image = document.querySelector('#game-image').files[0];
         const description = document.querySelector('#game-description').value;
         const link = document.querySelector('#game-link').value;
       
         const formData = new FormData();
         formData.append('name', name);
-        formData.append('image', image);
         formData.append('description', description);
         formData.append('link', link);
       
@@ -388,5 +378,6 @@
           .catch(error => console.error('Error:', error));
         })
 </script>
+
 </body>
 </html>

@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gamer</title>
+    <title>Gamer - 觀眾</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -62,7 +62,7 @@
 
 <div class="pt-5 pb-5" style="background-color: #f2f2f2;">
     <div class="container">
-      <div class="row">
+      <div class="row" id="#gamesContainer">
         <div class="section-head col-sm-12" id="service">
           <h1>Store - 觀眾</h1>
           <p>可以將自己製作的遊戲上架上來供給給大家做遊玩，也可以在這裡找到自己喜歡的遊戲，並且舉辦電競賽事連線遊玩。
@@ -71,12 +71,6 @@
         </div>
         <div class="col-lg-4 col-sm-6">
           <div class="item"> <span class="icon feature_box_col_two"><i class="fa fa-magic"></i></span>
-            <h6>遊戲名稱</h6>
-            <p>介紹放這</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="item"> <span class="icon feature_box_col_three"><i class="fa fa-magic"></i></span>
             <h6>遊戲名稱</h6>
             <p>介紹放這</p>
           </div>
@@ -302,6 +296,28 @@
         })
         .catch(error => {
             console.error('Error:', error);
+        });
+    });
+</script>
+
+<!------------------從allow資料庫中取得資料並且更新------------------->
+
+<script>
+    fetch('/getAllowedGames')
+    .then(response => response.json())
+    .then(games => {
+        const container = document.querySelector('#gamesContainer');
+        games.forEach(game => {
+            const item = document.createElement('div');
+            item.className = 'col-lg-4 col-sm-6';
+            item.innerHTML = `
+                <div class="item">
+                    <span class="icon feature_box_col_two"><i class="fa fa-magic"></i></span>
+                    <h6><a href="${game.description}">${game.name}</a></h6>
+                    <p>${game.image}</p>
+                </div>
+            `;
+            container.appendChild(item);
         });
     });
 </script>

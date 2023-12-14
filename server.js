@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
+const multer  = require('multer');
+const upload = multer();
 
 const app = express();
 app.use(bodyParser.json());
@@ -48,9 +50,19 @@ db.run('CREATE TABLE Games(id INTEGER PRIMARY KEY, name TEXT, image TEXT, descri
   console.log('Connected to the in-memory SQlite database - Game...');
 });
 
+/*--------------------建立一個allow的資料庫----------------------*/
+
+db.run('CREATE TABLE AllowedGames(id INTEGER PRIMARY KEY, name TEXT, image TEXT, description TEXT)', (err) => {
+  if (err) {
+    return console.log(err.message);
+  }
+  console.log('Table AllowedGames created successfully...');
+});
+
 /*-------------------將用戶的名字、電郵和密碼插入到 users 表格中-------------------*/
 
 app.post('/signup', (req, res) => {
+  console.log(req.body);
   db.run(`INSERT INTO users(name, email, password, profession) VALUES(?, ?, ?, ?)`, [req.body.name, req.body.email, req.body.password, req.body.profession], function(err) {
     if (err) {
       return res.status(400).json({ error: err.message });
@@ -61,17 +73,31 @@ app.post('/signup', (req, res) => {
 
 /*-------------------將遊戲中的資訊存在 game 表格當中------------------*/
 
-app.post('/addGame', (req, res) => {
+app.post('/addGame', upload.any(), (req, res) => {
+  console.log(req.body);
   const name = req.body.name;
-  const image = req.body.image;  
   const description = req.body.description;
   const link = req.body.link;
-
-  db.run(`INSERT INTO Games(name, image, description, link) VALUES(?, ?, ?, ?)`, [name, image, description, link], function(err) {
+  db.run(`INSERT INTO Games(name, image, description, link) VALUES(?, ?, ?, ?)`, [name, description, link], function(err) {
     if (err) {
       return res.status(400).json({ error: err.message });
     }
     return res.json({ message: 'Game added successfully.' });
+  });
+});
+
+/*-------------------儲存allow後的資料------------------*/
+
+app.post('/allowGame', (req, res) => {
+  console.log(req.body);
+  const name = req.body.name;
+  const image = req.body.image;
+  const description = req.body.description;
+  db.run(`INSERT INTO AllowedGames(name, image, description) VALUES(?, ?, ?)`, [name, image, description], function(err) {
+    if (err) {
+      return res.status(400).json({ error: err.message });
+    }
+    return res.json({ message: 'Game allowed successfully.' });
   });
 });
 
@@ -117,6 +143,9 @@ app.post('/signin', (req, res) => {
   });
 });
 
+
+/*---------------------取得用戶---------------------*/
+
 app.get('/api/user', (req, res) => {
   // 假設你已經在某個地方儲存了當前登入的用戶的 email
   const userEmail = req.session.email;
@@ -142,6 +171,41 @@ app.get('/checkRole', (req, res) => {
     res.json({ canAddGame: false });
   }
 });
+
+/*-------------------取得所有遊戲資訊-------------------*/
+
+app.get('/getGames', (req, res) => {
+  db.all(`SELECT * FROM Games`, [], (err, rows) => {
+    if (err) {
+      return res.status(400).json({ error: err.message });
+    }
+    return res.json(rows);
+  });
+});
+
+/*---------------刪除該資料庫中欄位----------------*/
+
+app.delete('/deleteGame/:id', (req, res) => {
+  const id = req.params.id;
+  db.run(`DELETE FROM Games WHERE id = ?`, id, function(err) {
+    if (err) {
+      return res.status(400).json({ error: err.message });
+    }
+    return res.json({ success: true, message: 'Game deleted successfully.' });
+  });
+});
+
+/*---------------取得allow後的資料----------------*/
+
+app.get('/getAllowedGames', (req, res) => {
+  db.all('SELECT * FROM AllowedGames', [], (err, rows) => {
+    if (err) {
+      return res.status(400).json({ error: err.message });
+    }
+    return res.json(rows);
+  });
+});
+
 /*-------------------監聽-------------------*/
 
 app.listen(5501, () => {
