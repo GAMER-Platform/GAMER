@@ -199,6 +199,17 @@ app.get('/api/user', (req, res) => {
   });
 });
 
+/*---------------------讓manager取得用戶---------------------*/
+app.get('/api/users', (req, res) => {
+  db.all('SELECT * FROM users', (err, rows) => {
+    if (err) {
+      res.status(500).json({ error: err.message });
+      return;
+    }
+    res.json(rows);
+  });
+});
+
 /*---------------------限制看到的頁面---------------------*/
 
 app.get('/checkRole', (req, res) => {
