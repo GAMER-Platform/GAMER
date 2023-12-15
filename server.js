@@ -1,3 +1,5 @@
+/* CHUNG-HAO 2023 版權所有 */
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const sqlite3 = require('sqlite3').verbose();
@@ -41,7 +43,7 @@ db.run('CREATE TABLE users(name text, email text UNIQUE, password text, professi
   }
 });
 
-/*-------------------建立資料庫連線：連盟者-------------------*/
+/*-------------------建立資料庫連線：連盟者 遊戲-------------------*/
 
 db.run('CREATE TABLE Games(id INTEGER PRIMARY KEY, name TEXT, image TEXT, description TEXT, link TEXT)', (err) => {
   if (err) {
@@ -56,7 +58,15 @@ db.run('CREATE TABLE AllowedGames(id INTEGER PRIMARY KEY, name TEXT, image TEXT,
   if (err) {
     return console.log(err.message);
   }
-  console.log('Table AllowedGames created successfully...');
+  console.log('Connected to the in-memory SQlite database - allow...');
+});
+
+/*--------------------建立資料庫連線：聯盟者 競賽----------------------*/
+db.run('CREATE TABLE Contests(id INTEGER PRIMARY KEY, name TEXT, description TEXT, link TEXT, participants TEXT)', (err) => {
+  if (err) {
+    return console.log(err.message);
+  }
+  console.log('Connected to the in-memory SQlite database - Contest...');
 });
 
 /*-------------------將用戶的名字、電郵和密碼插入到 users 表格中-------------------*/
@@ -86,7 +96,20 @@ app.post('/addGame', upload.any(), (req, res) => {
   });
 });
 
-/*-------------------儲存allow後的資料------------------*/
+/*-------------------將競賽中的資訊存在 contest 表格當中------------------*/
+
+app.post('/addContest', (req, res) => {
+  console.log(req.body);
+  const { name1, description1, link1} = req.body;
+  db.run(`INSERT INTO Contests(name, description, link) VALUES(?, ?, ?)`, [name1, description1, link1], function(err) {
+    if (err) {
+      return console.log(err.message);
+    }
+    return res.json();
+  });
+});
+
+/*-------------------儲存Gmae - allow後的資料------------------*/
 
 app.post('/allowGame', (req, res) => {
   console.log(req.body);
@@ -101,6 +124,22 @@ app.post('/allowGame', (req, res) => {
   });
 });
 
+/*-------------------儲存contest - allow後的資料------------------*/
+
+app.post('/AllowContests', (req, res) => {
+  console.log(req.body);
+  const id = req.body.id;
+  const name = req.body.name;
+  const description = req.body.description;
+  const link = req.body.link;
+
+  db.run(`INSERT INTO AllowedContests(id, name, description, link) VALUES(?, ?, ?, ?)`, [id, name, description, link], function(err) {
+      if (err) {
+          return res.status(400).json({ error: err.message });
+      }
+      return res.json({ message: 'Contest allowed successfully.' });
+  });
+});
 /*-------------------程式碼會檢查用戶的電郵和密碼是否正確-------------------*/
 
 app.get('/signin', (_req, res) => {
@@ -114,7 +153,7 @@ app.post('/signin', (req, res) => {
     }
     if (row) {
       if (row.password === req.body.password) {
-        req.session.email = req.body.email; // 儲存用戶的 email 到 session
+        req.session.email = req.body.email; 
 
         let redirectPage;
         switch (row.profession) {
@@ -147,7 +186,6 @@ app.post('/signin', (req, res) => {
 /*---------------------取得用戶---------------------*/
 
 app.get('/api/user', (req, res) => {
-  // 假設你已經在某個地方儲存了當前登入的用戶的 email
   const userEmail = req.session.email;
   db.get(`SELECT name FROM users WHERE email = ?`, [userEmail], (err, row) => {
     if (err) {
@@ -206,6 +244,27 @@ app.get('/getAllowedGames', (req, res) => {
   });
 });
 
+/*----------------------取得競賽資訊----------------------*/
+
+app.get('/getContests', (req, res) => {
+  db.all('SELECT * FROM Contests', [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.json(rows);
+  });
+});
+
+/* ----------------------刪除競賽資訊----------------------- */
+app.delete('/deleteContests/:id', (req, res) => {
+  const id = req.params.id;
+  db.run(`DELETE FROM Games WHERE id = ?`, id, function(err) {
+    if (err) {
+      return res.status(400).json({ error: err.message });
+    }
+    return res.json({ success: true, message: 'Game deleted successfully.' });
+  });
+});
 /*-------------------監聽-------------------*/
 
 app.listen(5501, () => {

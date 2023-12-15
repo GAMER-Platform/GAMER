@@ -110,7 +110,7 @@
 <section id="contest" class="contest">
     <div class="pt-5 pb-5">
         <div class="container">
-        <div class="row">
+        <div class="row" id="Contest">
             <div class="section-head-1 col-sm-12" style="text-align: center;">
             <h4 style="margin-top: -5rem;" id="portfolio"><span>Our</span> Contest - 玩家</h4>
             <p>相關賽事舉辦以及報名參加</p>
@@ -119,20 +119,6 @@
             
             <div class="col-lg-4 col-sm-6 order-lg-1">
             <div class="item"> <span class="icon feature_box_col_four"><i class="fa fa-upload"></i></span>
-                <h6>contest</h6>
-                <p>登愣<br><br><br></p>
-            </div>
-            </div>
-            
-            <div class="col-lg-4 col-sm-6 order-lg-3">
-            <div class="item"> <span class="icon feature_box_col_five"><i class="fa fa-upload"></i></span>
-                <h6>contest</h6>
-                <p>登愣<br><br><br></p>
-            </div>
-            </div>
-
-            <div class="col-lg-4 col-sm-6 order-lg-2">
-            <div class="item"> <span class="icon feature_box_col_six"><i class="fa fa-upload"></i></span>
                 <h6>contest</h6>
                 <p>登愣<br><br><br></p>
             </div>
@@ -302,26 +288,7 @@
 </script>
 
 <!------------------從allow資料庫中取得資料並且更新------------------->
-
-<script>
-    fetch('/getAllowedGames')
-    .then(response => response.json())
-    .then(games => {
-        const container = document.querySelector('#gamesContainer');
-        games.forEach(game => {
-            const item = document.createElement('div');
-            item.className = 'col-lg-4 col-sm-6';
-            item.innerHTML = `
-                <div class="item">
-                    <span class="icon feature_box_col_two"><i class="fa fa-magic"></i></span>
-                    <h6><a href="${game.description}">${game.name}</a></h6>
-                    <p>${game.image}</p>
-                </div>
-            `;
-            container.appendChild(item);
-        });
-    });
-</script>
-
+<script src="js/AllowGame.js"></script>
+<script src="js/AllowContest.js"></script>
 </body>
 </html>

@@ -64,42 +64,10 @@
 
 <!---------事件點擊監聽器--------->
 
-<script>
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
-
-signUpButton.addEventListener('click', () => {
-	container.classList.add("right-panel-active");
-});
-
-signInButton.addEventListener('click', () => {
-	container.classList.remove("right-panel-active");
-});
-</script>
+<script src="js/SignClick.js"></script>
 
 
 <!---------Ajax 進行判斷錯誤--------->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-$("#loginForm").submit(function(e){
-  e.preventDefault();
-  $.ajax({
-    type: "POST",
-    url: "/signin",
-    data: $(this).serialize(),
-    success: function(data)
-    {
-      if(data.redirect) {
-        window.location.href = data.redirect;
-      }
-    },
-    error: function(xhr, status, error)
-    {
-      var errorMessage = JSON.parse(xhr.responseText).error;
-      alert(errorMessage);
-    }
-  });
-});
-</script>
+<script src="js/Ajax-form.js"></script>

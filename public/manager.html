@@ -29,12 +29,6 @@
         <div class="fas fa-bars"></div>
         <nav class="navbar">
             <ul>
-                <li><a href="#home">home</a></li>
-                <li><a href="#about">about</a></li>
-                <li><a href="#service">store</a></li>
-                <li><a href="#contest">contest</a></li>
-                <li><a href="#team">team</a></li>
-                <li><a href="#contact">contact</a></li>
                 <li class="navbar-text"><a href="sign.html">sign in/up</a></li>
             </ul>
         </nav>
@@ -93,10 +87,10 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">編號</th>
-                            <th scope="col">遊戲名稱</th>
-                            <th scope="col">遊戲介紹</th>
-                            <th scope="col">遊戲連結</th>
+                            <th scope="col">number</th>
+                            <th scope="col">ContestName</th>
+                            <th scope="col">ContestIntroduction</th>
+                            <th scope="col">ContestLink</th>
                         </tr>
                     </thead>
                     <tbody id="datacontest">
@@ -106,98 +100,58 @@
         </div>
     </div>
 
+<div class="footer">
+  <div class="footer-top">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-3 col-md-6 footer-links">
+                  <h4>About Us</h4>
+                  <ul>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#">Home</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#about">About us</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#service">Store</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#">Terms</a></li>
+                      <li><i class="ion-ios-arrow-forward"></i> <a href="#">Contect</a></li>
+                  </ul>
+              </div>
+
+              <div class="col-lg-3 col-md-6 footer-contact" style="font-size: 1.5rem;">
+                  <h4>Contact Us</h4>
+                  <p>
+                      我考慮一下...
+                  </p>
+
+              </div>
+
+              <div class="col-lg-3 col-md-6 footer-newsletter">
+                  <h4>Subscription</h4>
+                  <form action="" method="post">
+                      <input type="email" name="email"><input type="submit"  value="Subscribe">
+                  </form>
+              </div>
+
+          </div>
+      </div>
+  </div>
+
+  <div class="container">
+      <div class="row align-items-center">
+          <div class="col-md-6 copyright" style="color: #fff; font-size: 1.3rem;">
+              Copyright &copy; 2023 CHUNG-HAO. All Rights Reserved.
+          </div>
+      </div>
+  </div>
+</div>
+
+<a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
+
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     
 <!-------------------動態插入表格---------------------->
-
-    <script>
-        document.querySelector('#dataBody').innerHTML = '';
-    
-        fetch('/getGames')
-            .then(response => response.json())
-            .then(data => {
-                const tbody = document.querySelector('#dataBody');
-                data.forEach((item, index) => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                        <th scope="row">${index + 1}</th>
-                        <td>${item.name}</td>
-                        <td>${item.image}</td>
-                        <td>${item.description}</td>
-                        <td>
-                            <button class="delete-button" data-id="${item.id}">刪除</button>
-                            <button class="allow-button" data-id="${item.id}" data-name="${item.name}" data-image="${item.image}" data-description="${item.description}">允許</button>
-                        </td>
-                    `;
-                    tbody.appendChild(tr);
-                });
-    
-                /*----------刪除資料庫中其中一項元素----------*/
-    
-                document.querySelectorAll('.delete-button').forEach(button => {
-                    button.addEventListener('click', (event) => {
-                        const id = event.target.getAttribute('data-id');
-    
-                        // 發送請求到伺服器以刪除該記錄
-                        fetch(`/deleteGame/${id}`, {
-                            method: 'DELETE',
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                event.target.parentElement.parentElement.remove();
-                            } else {
-                                console.error('刪除失敗');
-                            }
-                        });
-                    });
-                });
-    
-                /*----------允許資料庫中其中一項元素----------*/
-    
-                document.querySelectorAll('.allow-button').forEach(button => {
-                    button.addEventListener('click', (event) => {
-                        const id = event.target.getAttribute('data-id');
-                        const name = event.target.getAttribute('data-name');
-                        const image = event.target.getAttribute('data-image');
-                        const description = event.target.getAttribute('data-description');
-    
-                        fetch('/allowGame', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({ id, name, image, description }),
-                        })
-                        .then(response => response.json())
-                        .then(data => console.log(data))
-                        .catch((error) => {
-                            console.error('Error:', error);
-                        });
-                    });
-                });
-            });
-    </script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            fetch('/api/user')
-                .then(response => response.json())
-                .then(data => {
-                const userName = data.name;
-                const navbarText = document.querySelector('.navbar-text');
-                if (userName) {
-                    navbarText.innerHTML = `<a href="#">Hi! ${userName}</a> <a href="sign.html">登出</a>`;
-                } else {
-                    navbarText.innerHTML = '<a href="sign.html">sign in</a>';
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
-    </script>
-
+    <script src="js/manager-databody.js"></script>
+    <script src="js/ApiUser.js"></script>
+    <script src="js/manager-contest.js"></script>
 </body>
 </html>

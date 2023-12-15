@@ -29,12 +29,6 @@
         <div class="fas fa-bars"></div>
         <nav class="navbar">
             <ul>
-                <li><a href="#home">home</a></li>
-                <li><a href="#about">about</a></li>
-                <li><a href="#service">store</a></li>
-                <li><a href="#contest">contest</a></li>
-                <li><a href="#team">team</a></li>
-                <li><a href="#contact">contact</a></li>
                 <li class="navbar-text"><a href="sign.html">sign in/up</a></li>
             </ul>
         </nav>
@@ -46,18 +40,6 @@
     <div class="wave wave1"></div>
     <div class="wave wave2"></div>
     <div class="wave wave3"></div>
-  </section>
-
-  <section id="about" class="about">
-    <h1 class="heading">about us</h1>
-    <div class="row">
-        <div class="content">
-            <h3>我們創造不可思議</h3>
-            <p>Ours is a team of creatives that is brainstorming on great ideas,<b> all. the. time.</b><br>
-                With our skills put together, you get an ensemble capable of doing anything and everything your brand needs.</p>
-            <a href="#"><button class="btn">Read More</button></a>
-        </div>
-    </div>
   </section>
 
 <div class="pt-5 pb-5" style="background-color: #f2f2f2;">
@@ -117,30 +99,6 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-  <section class="counters">
-    <div class="container">
-        <div>
-            <i class="far fa-clock fa-4x"></i>
-            <div class="counter" data-target="504">0</div>
-            <h3>Working Hours</h3>
-        </div>
-        <div>
-            <i class="fas fa-gift fa-4x"></i>
-            <div class="counter" data-target="3">0</div>
-            <h3>Completed Projects</h3>
-        </div>
-        <div>
-            <i class="fas fa-users fa-4x"></i>
-            <div class="counter" data-target="64">0</div>
-            <h3>Happy Clients</h3>
-        </div>
-        <div>
-            <i class="fas fa-award fa-4x"></i>
-            <div class="counter" data-target="1">0</div>
-            <h3>Awards Received</h3>
-        </div>
-    </div>
-</section>
 <section id="contest" class="contest">
     <div class="pt-5 pb-5">
         <div class="container">
@@ -153,140 +111,44 @@
             
             <div class="col-lg-4 col-sm-6">
                 <div class="item"> 
-              <a href="#" data-toggle="modal" data-target="#addGameModal">
+              <a href="#" data-toggle="modal" data-target="#addContestModal">
                   <span class="icon feature_box_col_one"><i class="fa fa-plus"></i></span> 
                   <h6>Add New</h6> 
                   <p>Click here to add new.</p> 
               </a>
-              <div class="modal fade" id="addGameModal" tabindex="-1" role="dialog" aria-labelledby="addGameModalLabel" aria-hidden="true">
+              <div class="modal fade" id="addContestModal" tabindex="-1" role="dialog" aria-labelledby="addContestModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                   <div class="modal-content">
                       <div class="modal-header">
-                      <h5 class="modal-title" id="addGameModalLabel">新增遊戲</h5>
+                      <h5 class="modal-title" id="addContestModalLabel">新增競賽</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                       </button>
                       </div>
-                      <div class="modal-body">
-                      <form>
-                          <div class="form-group">
-                          <label for="game-name">遊戲名稱</label>
-                          <input type="text" class="form-control" id="game-name">
-                          </div>
-                          <div class="form-group">
-                          <label for="game-description">遊戲介紹</label>
-                          <textarea class="form-control" id="game-description" rows="3"></textarea>
-                          </div>
-                          <div class="form-group">
-                          <label for="game-link">遊戲連結</label>
-                          <input type="text" class="form-control" id="game-link">
-                          </div>
-                          <button type="submit" class="btn btn-primary">儲存</button>
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
-                      </form>
+                      <div class="modal-contest">
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="contest-name">競賽名稱</label>
+                                <input type="text" class="form-control" id="contest-name" name="name1">
+                            </div>
+                            <div class="form-group">
+                                <label for="contest-description">競賽介紹</label>
+                                <textarea class="form-control" id="contest-description" rows="3" name="description1"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="contest-link">競賽連結</label>
+                                <input type="text" class="form-control" id="contest-link" name="link1">
+                            </div>
+                            <button type="submit" class="btn btn-primary">儲存</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                        </form>
                       </div>
                       <div class="modal-footer">
-                      </div>
+                </div>
+            </div>
         </div>
-        </div>
     </div>
 </section>
-<div class="communicate">
-    <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-    <p>Lorem ipsum dolor sit amet.</p>
-    <a href="#contact"><button class="btn">Contact Now</button></a>
-</div>
-<a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
-<script src="lib/jquery/jquery.min.js"></script>
-<script src="lib/jquery/jquery-migrate.min.js"></script>
-<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="lib/easing/easing.min.js"></script>
-<script src="lib/waypoints/waypoints.min.js"></script>
-<script src="lib/counterup/counterup.min.js"></script>
-<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="lib/lightbox/js/lightbox.min.js"></script>
-
-<section class="team" style="margin-top: 7rem;">
-  <h1 class="heading" style="margin-top: -1.5rem;" id="team">our team</h1>
-  <p></p>
-  <div class="row">
-      <div class="card">
-          <div class="image">
-              <img src="images/Screenshot 2023-12-12 at 1.05.04 AM.png" alt="Team member 1">
-          </div>
-          <div class="info">
-              <h3>Chris Chung</h3>
-              <span>普通人</span>
-              <br>
-              <span>Software</span>
-              <div class="icons">
-                  <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
-                  <a href="https://twitter.com/login" class="fab fa-twitter"></a>
-                  <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
-                  <a href="https://www.linkedin.com/" class="fab fa-linkedin"></a>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="row">
-      <div class="card">
-          <div class="image">
-              <img src="images/Screenshot 2023-12-12 at 1.01.49 AM.png" alt="Team member 1">
-          </div>
-          <div class="info">
-              <h3>George Lin</h3>
-              <span>出事找這位</span>
-              <br>
-              <span>Game</span>
-              <div class="icons">
-                  <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
-                  <a href="https://twitter.com/login" class="fab fa-twitter"></a>
-                  <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
-                  <a href="https://www.linkedin.com/" class="fab fa-linkedin"></a>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="row">
-      <div class="card">
-          <div class="image">
-              <img src="images/Screenshot 2023-12-12 at 1.05.56 AM.png" alt="Team member 1">
-          </div>
-          <div class="info">
-              <h3>Mei Chang</h3>
-              <span>數學扛壩子</span>
-              <br>
-              <span>PM</span>
-              <div class="icons">
-                  <a href="https://www.facebook.com/" class="fab fa-facebook-f"></a>
-                  <a href="https://twitter.com/login" class="fab fa-twitter"></a>
-                  <a href="https://www.instagram.com/" class="fab fa-instagram"></a>
-                  <a href="https://www.linkedin.com/" class="fab fa-linkedin"></a>
-              </div>
-          </div>
-      </div>
-  </div>
- 
-</section>
-
-<section id="contact" class="contact">
-    <h1 class="heading">get in touch</h1>
-</section>
-<div class="contact-in">
-    <div class="contact-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3747121.81958051!2d120.08430060000005!3d23.48575005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346ef3065c07572f%3A0xe711f004bf9c5469!2sTaiwan!5e0!3m2!1sen!2sin!4v1702384610326!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-    <div class="contact-form">
-        <form action="./contactme.php" method="POST">
-            <input type="text" name="name" placeholder="Name" class="contact-form-txt" required>
-            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required placeholder="Contact number" maxlength="10" class="contact-form-phone">
-            <input type="email" name="email" placeholder="Email" class="contact-form-email" required>
-            <textarea placeholder="Your Message" name="message" class="contact-form-txtarea" required></textarea>
-            <input type="submit" value="Submit" name="submit" class="contact-form-btn">
-        </form>
-    </div>
-    </div>
-
     <div class="footer">
       <div class="footer-top">
           <div class="container">
@@ -332,52 +194,15 @@
 
   <a href="#" class="back-to-top"><i class="ion-ios-arrow-up"></i></a>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        fetch('/api/user')
-            .then(response => response.json())
-            .then(data => {
-            const userName = data.name;
-            const navbarText = document.querySelector('.navbar-text');
-            if (userName) {
-                navbarText.innerHTML = `<a href="#">Hi! ${userName}</a> <a href="sign.html">登出</a>`;
-            } else {
-                navbarText.innerHTML = '<a href="sign.html">sign in</a>';
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-        });
-    });
-</script>
+<!------------使用者連線處理------------>
+
+  <script src="js/ApiUser.js"></script>
 
 <!------------遊戲表單處理------------>
 
-<script>
-    document.querySelector('form').addEventListener('submit', (event) => {
-        event.preventDefault();
-      
-        const name = document.querySelector('#game-name').value;
-        const description = document.querySelector('#game-description').value;
-        const link = document.querySelector('#game-link').value;
-      
-        const formData = new FormData();
-        formData.append('name', name);
-        formData.append('description', description);
-        formData.append('link', link);
-      
-        fetch('/addGame', {
-            method: 'POST',
-            body: formData
-          })
-          .then(response => response.json())
-          .then(data => {
-            console.log(data);
-            $('#addGameModal').modal('hide'); 
-          })
-          .catch(error => console.error('Error:', error));
-        })
-</script>
+<script src="js/GameForm.js"></script>
 
+<!------------競賽表單處理------------>
+<script src="js/ContestForm.js"></script>
 </body>
 </html>
