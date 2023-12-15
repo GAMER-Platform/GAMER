@@ -1,3 +1,5 @@
+// 2023 CHUNG-HAO 版權所有
+
 fetch('/getAllowedGames')
 .then(response => response.json())
 .then(games => {

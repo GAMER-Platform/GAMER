@@ -1,3 +1,5 @@
+// 2023 CHUNG-HAO 版權所有
+
 $("#loginForm").submit(function(e){
     e.preventDefault();
     $.ajax({

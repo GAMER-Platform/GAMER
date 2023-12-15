@@ -1,3 +1,5 @@
+// 2023 CHUNG-HAO 版權所有
+
 document.querySelector('#datacontest').innerHTML = '';
 
 fetch('/getContests')

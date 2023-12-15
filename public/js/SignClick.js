@@ -1,3 +1,5 @@
+// 2023 CHUNG-HAO 版權所有
+
 const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');

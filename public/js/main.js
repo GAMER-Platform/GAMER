@@ -66,6 +66,8 @@ $(window).scroll(function () {
        $('.back-to-top').fadeOut('slow');
    }
 });
+// 2023 CHUNG-HAO 版權所有
+
 $('.back-to-top').click(function () {
    $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
    return false;

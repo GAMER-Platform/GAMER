@@ -1,3 +1,5 @@
+// 2023 CHUNG-HAO 版權所有
+
 document.addEventListener('DOMContentLoaded', (event) => {
     fetch('/api/user')
         .then(response => response.json())
