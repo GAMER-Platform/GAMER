@@ -1,48 +1,105 @@
-/* advertisement style css */
+/* style.css */
 
 html {
-    background-color:#DDDDFF;
+    background-color:aqua;
 }
 
 body {
     font-size: 125%;
 }
 
+h1 {
+    color: red;
+}
+
+h3 {
+    color: #41951b;
+}
+
+/* form {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    border: none;
+    align-items: center;
+} */
+
+form div {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    border: none;
+    height: 800px;
+    align-items: center;
+}
+
+form div .icon {
+    width: 300px;
+    height: 150px; 
+    border-radius: 8px;
+}
+
+.icon img {
+    width: 50px;
+    height: 50px;
+}
+
 .container {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     flex-direction: row;
-    border: 1px solid red;
-    height: 300px;
+    /* margin: 0; */
+    border: none;
+    height: 500px;
     justify-content: space-around;
+    align-items: center;
 }
 
 .container div {
-    border: 15px solid #DDDDFF;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: left;
+    border: none;
+    margin: .5rem;
+    border-radius: 15px;
     padding: 10px;
-    width: 100px;
+    width: 300px;
+    height: 350px;
     background-color: rgb(88, 88, 241);
     color: white;
 }
 
 .box-1 {
-    flex: 1;
     order: 1;
 }
 
 .box-2 {
-    flex: 1;
     order: 2;
 }
 
-img {
+.container div .submit {
+    margin: 0;
+    padding: 0;
+    width: 50px;
+    height: 20px;
+}
+
+.container img {
     width: 30px;
     height: 30px;
 }
 
-.submit {
-    position: relative;
-    right: 40%;
-    left: 40%;
-    bottom: .1px;
+
+.page2 {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 15%;
+}
+
+.page2 input {
+    height: 40px;
 }
