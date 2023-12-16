@@ -281,3 +281,5 @@ app.delete('/deleteContests/:id', (req, res) => {
 app.listen(5501, () => {
   console.log('Server is running on port 5501 http://127.0.0.1:5501');
 });
+
+module.exports = app;
