@@ -1,15 +1,6 @@
 # Imitate-Steam-arch-management-platform
 > Aiming to create a management platform for games
 
-### skill
-> 1. node js - Express
-> 2. Database - SQLite
-> 3. Ajax
-> 4. JQuery
-> 5. Bootstrap
-> 6. UnitTest
-
-
 ### System Design
 
 ### Use case
@@ -17,7 +8,11 @@
 ### How to use
 
 ### front-end
-
+> 1. Framwwork - Bootstrap, Ajax and JQuery
 ### back-end
+> 1. Framwwork - node.js (Express)
+> 2. Database - SQLite
+### UnitTest
+> 1. UnitTest - mocha (backendend) and chai (front-end)
 
 ### Database
