@@ -11,8 +11,8 @@
 > 1. Framwwork - Bootstrap, Ajax and JQuery
 ### back-end
 > 1. Framwwork - node.js (Express)
-> 2. Database - SQLite
 ### UnitTest
 > 1. UnitTest - mocha (backendend) and chai (front-end)
 
 ### Database
+> 1. Database - SQLite
