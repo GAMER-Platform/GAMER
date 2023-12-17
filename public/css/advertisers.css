@@ -1,7 +1,11 @@
 /* style.css */
 
 html {
-    background-color:aqua;
+    background-image: url("../images/background3.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 body {
@@ -9,27 +13,69 @@ body {
 }
 
 h1 {
-    color: red;
+    color: black;
 }
 
-h3 {
-    color: #41951b;
-}
-
-/* form {
+form {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: no-wrap;
     flex-direction: column;
-    border: none;
     align-items: center;
-} */
+}
+
+.step1 {
+    background-color: whitesmoke;
+}
+
+.step1 img {
+    width: 200px;
+}
+
+.step1 #slogan1 {
+    position: relative;
+    left: -30%;
+    top: 20%;
+}
+
+.step1 #slogan2 {
+    width: 400px;
+    position: relative;
+    right: -25%;
+    top: -20%;
+}
+
+.step2 {
+    background-color: whitesmoke;
+}
+
+.step2 img {
+    width: 200px;
+}
+
+.step2 #video1 {
+    position: relative;
+    left: -30%;
+    top: 20%;
+}
+
+.step2 #video2 {
+    position: relative;
+    right: -30%;
+    top: -15%;
+}
+
+.step3 {
+    background-color: whitesmoke;
+}
 
 form div {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
     border: none;
-    height: 800px;
+    width: 1000px;
+    height: 600px;
+    margin-bottom: 200px;
     align-items: center;
 }
 
@@ -37,6 +83,11 @@ form div .icon {
     width: 300px;
     height: 150px; 
     border-radius: 8px;
+    margin-bottom: 0;
+}
+
+form div .textline {
+    margin: 0;
 }
 
 .icon img {
@@ -75,6 +126,10 @@ form div .icon {
 }
 
 .box-2 {
+    order: 3;
+}
+
+#ania {
     order: 2;
 }
 
@@ -102,4 +157,19 @@ form div .icon {
 
 .page2 input {
     height: 40px;
+}
+
+.container #ania {
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 0;
+    width: 10px;
+    height: 150px;
+    position: relative;
+    right: -10%;
+}
+
+.container #ania img {
+    width: 250px;
+    height: 150px;
 }
