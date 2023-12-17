@@ -2,31 +2,26 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/advertisers.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="George">
     </head>
     <body>
         <h1 align= "center">廣告新增地區</h1>
         <hr>
-        <!-- 下面可填入欲傳入的資料庫 -->
-        <!-- 我自行先填了，如果有錯需自行更正 -->
-        <form id="form" action="/advertise" method="POST">
-        <!-- -------------------------------------------------- -->
-        <!-- -------------------------------------------------- -->
+        <form id="form" action="/advertise" method="POST" enctype="multipart/form-data">
             <div align="center" id="name">
                 <h3>欲加入之宣傳標語：</h3>
-                <textarea name="name" rows="6" cols="40"></textarea>
+                <textarea name="slogan" rows="6" cols="40"></textarea>
                 <br>
                 <a href="#pic"><input type="button" value="下一步！" style="height: 40px"/></a>
             </div>
             <div align="center" id="pic">
                 <h3>再放入一張圖片吧！</h3>
-                <input type="file" name="pic" />
+                <input type="file" name="image" />
                 <br><br>
-                <a href="#casechoice"><input type="button" name="submit" value="確認方案！" style="height: 40px"></a>
+                <a href="#casechoice"><input type="button" value="確認方案！" style="height: 40px"></a>
             </div>
-            <!-- 選擇方案 -->
             <div>
                 <div class="icon" id="casechoice">
                     <h3>請選擇廣告方案：</h3>
@@ -38,14 +33,14 @@
                         <p>TWD$200 / 月</p>
                         <p><img src="./images/slogan_icon.png">採用文字logo宣傳</p>
                         <p><img src="./images/promotion_icon.png">固定專區顯示</p>
-                        <div class="submit"><a href="page2-1.html"><input type="submit" value="訂閱" name="basic"></a></div>
+                        <div class="submit"><input type="submit" value="Basic" name="plan"></div>
                     </div>
                     <div class="box-2">
                         <p><i><b><u>Professional</u></b></i></p>
                         <p>TWD$500 / 月</p>
                         <p><img src="./images/video_icon.png">可上傳影片video</p>
                         <p><img src="./images/play-button.png">讓更多人看見你</p>
-                        <div class="submit"><a href="page2-2.html"><input type="submit" value="訂閱" name="professional"></a></div>
+                        <div class="submit"><input type="submit" value="Professional" name="plan"></div>
                     </div>
                 </div>
             </div>

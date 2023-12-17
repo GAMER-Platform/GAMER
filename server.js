@@ -12,6 +12,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(express.static('public'));
 
+// Set EJS as the view engine
+app.set('view engine', 'ejs');
+
+
 app.get('/', (_req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'sign.html'));
 });
@@ -140,6 +144,36 @@ app.post('/AllowContests', (req, res) => {
       return res.json({ message: 'Contest allowed successfully.' });
   });
 });
+
+/*-----------------------廣告商資料儲存------------------------- */
+
+db.run(`CREATE TABLE IF NOT EXISTS advertisers (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  slogan TEXT,
+  image TEXT,
+  plan TEXT
+)`, (err) => {
+  if (err) {
+      console.error(err.message);
+  }
+});
+
+app.post('/advertise', upload.single('image'), (req, res) => {
+console.log(req.body)
+console.log(req.file);
+
+let slogan = req.body.slogan;
+let image = req.file.buffer.toString('base64');
+let plan = req.body.plan;
+
+db.run(`INSERT INTO advertisers(slogan, image, plan) VALUES(?, ?, ?)`, [slogan, image, plan], function(err) {
+  if (err) {
+    return res.status(400).json({ error: err.message });
+  }
+  return res.json({ message: 'Advertiser added successfully.' });
+});
+});
+
 /*-------------------程式碼會檢查用戶的電郵和密碼是否正確-------------------*/
 
 app.get('/signin', (_req, res) => {
@@ -276,6 +310,17 @@ app.delete('/deleteContests/:id', (req, res) => {
     return res.json({ success: true, message: 'Game deleted successfully.' });
   });
 });
+
+/*------------------------取得廣告商資料--------------------- */
+app.get('/advertisers', (req, res) => {
+  db.all(`SELECT * FROM advertisers`, [], (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    res.json(rows);
+  });
+});
+
 /*-------------------監聽-------------------*/
 
 app.listen(5501, () => {
