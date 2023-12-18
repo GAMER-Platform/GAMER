@@ -10,24 +10,29 @@
         <h1 align= "center">廣告新增地區</h1>
         <hr>
         <form id="form" action="/advertise" method="POST" enctype="multipart/form-data">
-            <div align="center" id="name">
+            <div align="center" id="name" class="step1">
                 <h3>欲加入之宣傳標語：</h3>
-                <textarea name="slogan" rows="6" cols="40"></textarea>
+                <div class="textline"><textarea style="resize: none" name="slogan" rows="5" cols="40"></textarea></div>
                 <br>
                 <a href="#pic"><input type="button" value="下一步！" style="height: 40px"/></a>
+                <img id="slogan1" src="./images/slogan1_icon.png">
+                <img id="slogan2" src="./images/slogan2_icon.png">
             </div>
-            <div align="center" id="pic">
+            <div align="center" id="pic" class="step2">
                 <h3>再放入一張圖片吧！</h3>
                 <input type="file" name="image" />
                 <br><br>
                 <a href="#casechoice"><input type="button" value="確認方案！" style="height: 40px"></a>
+                <img id="video1" src="./images/video_icon1.svg">
+                <img id="video2" src="./images/TV_icon.png">
             </div>
-            <div>
+            <div class="step3">
                 <div class="icon" id="casechoice">
                     <h3>請選擇廣告方案：</h3>
                     <img name="arrow" src="./images/down-chevron.png">
                 </div>
                 <div class="container">
+                    <div id="ania"><img src="./images/ania.png"></div>
                     <div class="box-1">
                         <p><i><b><u>Basic</u></b></i></p>
                         <p>TWD$200 / 月</p>
