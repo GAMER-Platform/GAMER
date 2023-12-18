@@ -42,3 +42,9 @@
 
 ### Http
 > 1. CORS（跨來源資源共享）是瀏覽器技術規範，用來傳輸 HTTP 標頭 (en-US)，判斷阻擋或允許不同來源網域的資源存取。
+
+### CI/CD
+> 1. github Action CI
+
+### deploy
+> 1. Ngrok
