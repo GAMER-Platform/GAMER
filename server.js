@@ -1,4 +1,4 @@
-/* CHUNG-HAO 2023 版權所有 */
+/* CHUNG HAO 2023 dev */
 
 const express = require('express');
 const bodyParser = require('body-parser');

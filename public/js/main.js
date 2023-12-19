@@ -1,6 +1,4 @@
-/*
-2023 CHUNG-HAO. All Rights Reserved. 版權所有
- */
+/* CHUNG HAO 2023 dev */
 
 $(document).ready(function(){
 

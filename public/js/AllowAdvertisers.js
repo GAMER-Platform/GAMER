@@ -1,3 +1,5 @@
+/* CHUNG HAO 2023 dev */
+
 fetch('/advertisers')
 .then(response => response.json())
 .then(advertisers => {

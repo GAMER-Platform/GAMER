@@ -1,4 +1,4 @@
-// 2023 CHUNG-HAO 版權所有
+/* CHUNG HAO 2023 dev */
 
 document.querySelector('#dataBody').innerHTML = '';
     
