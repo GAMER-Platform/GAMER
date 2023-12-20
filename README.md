@@ -1,6 +1,8 @@
 # Imitate-Steam-arch-management-platform
 > Aiming to create a management platform for games
 
+### Activity diagram
+![未命名绘图 drawio](https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/10158926-6e57-4302-8090-823ef89e8839)
 ### System Design
 
 ### Use case
