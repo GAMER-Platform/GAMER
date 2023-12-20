@@ -6,6 +6,7 @@
 ### System Design
 
 ### Use case
+![image](https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/bf805856-7ae0-4615-a74f-42c72b5ad830)
 
 ### How to use
 
