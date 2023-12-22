@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         const userName = data.name;
         const navbarText = document.querySelector('.navbar-text');
         if (userName) {
-            navbarText.innerHTML = `<a href="#">Hi! ${userName}</a> <a href="index.html">登出</a>`;
+            navbarText.innerHTML = `<a href="#">Hi! ${userName}</a> <a href="User.html">登出</a>`;
         } else {
             navbarText.innerHTML = '<a href="sign.html">sign in</a>';
         }
