@@ -9,7 +9,7 @@
 ![image](https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/e6b049eb-e07c-4b4d-8ea9-5787eec18f9e)
 
 ### How to use
-https://0565-61-216-112-155.ngrok-free.app/
+[https://0565-61-216-112-155.ngrok-free.app/](https://3b44-61-216-113-160.ngrok-free.app/)
 ### front-end
 > 1. Framwwork - Bootstrap, Ajax and JQuery <br>
 
