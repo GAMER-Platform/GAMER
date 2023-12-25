@@ -5,11 +5,16 @@
 ![未命名绘图 drawio](https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/10158926-6e57-4302-8090-823ef89e8839)
 ### System Design
 
+![image](https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/33b1c260-9f70-4b51-aadd-338280fcc6f7)
+![image](https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/a678d0be-67e7-49f8-b92a-8cabf6dc27b7)
+
+
 ### Use case
 ![image](https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/e6b049eb-e07c-4b4d-8ea9-5787eec18f9e)
 
 ### How to use
 [https://0565-61-216-112-155.ngrok-free.app/](https://3b44-61-216-113-160.ngrok-free.app/)
+
 ### front-end
 > 1. Framwwork - Bootstrap, Ajax and JQuery <br>
 
