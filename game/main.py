@@ -74,8 +74,10 @@ def draw_init():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
+                return True
             elif event.type == pygame.KEYUP:
                 waiting = False
+                return False
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
@@ -188,7 +190,9 @@ show_init = True
 running = True
 while running:
     if show_init:
-        draw_init()
+        close = draw_init()
+        if close:
+            break
         show_init = False
     
     clock.tick(FPS)
