@@ -2,15 +2,34 @@
 > Aiming to create a management platform for games
 
 ### Activity diagram
-![未命名绘图 drawio](https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/10158926-6e57-4302-8090-823ef89e8839)
-### System Design
+<img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/10158926-6e57-4302-8090-823ef89e8839">
 
-![image](https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/33b1c260-9f70-4b51-aadd-338280fcc6f7)
-![image](https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/a678d0be-67e7-49f8-b92a-8cabf6dc27b7)
+### System Design  - C4 model
+> C1
+<img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/1d092916-b3de-4559-822f-4e75d726f485">
+
+> C2
+<img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/3bf49c47-18e1-449b-868d-1951634dc718">
+<img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/28510c8e-d6cc-43c7-9d4e-3e38e60574d3">
+<img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/46b3faf2-8509-4e4e-9c43-21bd9c275d93">
+<img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/16fad8f1-9b3f-4181-a05e-7dc005ab990c">
+
+> C3
+<img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/abcc3799-3dab-4909-8295-c10c2f0ac7fc">
+<img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/713f332b-dc02-4507-9b97-dd1e02fc4054">
+
+
+
+### tem
+
+<img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/33b1c260-9f70-4b51-aadd-338280fcc6f7">
+<img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/a678d0be-67e7-49f8-b92a-8cabf6dc27b7">
+
 
 
 ### Use case
-![image](https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/e6b049eb-e07c-4b4d-8ea9-5787eec18f9e)
+
+<img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/e6b049eb-e07c-4b4d-8ea9-5787eec18f9e">
 
 ### How to use
   https://ff69-140-127-74-141.ngrok-free.app 
