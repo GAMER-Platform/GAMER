@@ -45,7 +45,7 @@
 <img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/e6b049eb-e07c-4b4d-8ea9-5787eec18f9e">
 
 ### How to use
- [ https://ff69-140-127-74-141.ngrok-free.app ](https://13ae-140-127-74-142.ngrok-free.app/)
+ https://0849-61-216-55-183.ngrok-free.app
 
 ### front-end
 > 1. Framwwork - Bootstrap, Ajax and JQuery <br>
