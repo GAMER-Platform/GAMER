@@ -1,4 +1,6 @@
 # Imitate-Steam-arch-management-platform
+
+![alt text](image.png)
 > Aiming to create a management platform for games
 
  [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
