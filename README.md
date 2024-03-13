@@ -47,6 +47,13 @@
 <img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/e6b049eb-e07c-4b4d-8ea9-5787eec18f9e">
 
 ### How to use
+```dockerfile=
+docker pull chunghao777/platform:latest
+```
+
+```dockerfile=
+docker run -p 5501:5501 chunghao777/platform:latest 
+```
  https://e092-140-127-74-142.ngrok-free.app
 
 <img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/8929fa98-ed37-483b-b62d-2410769f0082"> <br>
