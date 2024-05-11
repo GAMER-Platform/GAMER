@@ -1,6 +1,7 @@
 # Imitate-Steam-arch-management-platform
 
-![alt text](image.png)
+![all-devices-black-2](https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/19975c37-cc03-40c9-9c51-5b6c693940b9)
+
 > Aiming to create a management platform for games
 
  [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -11,7 +12,7 @@
 ### Activity diagram
 <img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/10158926-6e57-4302-8090-823ef89e8839">
 
-![all-devices-black](https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/1ddbc1ff-0e58-40e6-b9c1-c253f87d1793)
+
 
 ### system arch
 
