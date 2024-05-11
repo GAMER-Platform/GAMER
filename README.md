@@ -11,6 +11,7 @@
 ### Activity diagram
 <img width="50%" alt="image" src="https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/10158926-6e57-4302-8090-823ef89e8839">
 
+![all-devices-black](https://github.com/CHUNG-HAO/Imitate-Steam-arch-management-platform/assets/67829896/1ddbc1ff-0e58-40e6-b9c1-c253f87d1793)
 
 ### system arch
 
